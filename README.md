@@ -21,16 +21,16 @@
 
 ```bash
 # One-time sync
-./sync-code.sh -s myserver.com -r /var/www/myapp
+./sync.sh -s myserver.com -r /var/www/myapp
 
 # Auto-sync with default 2s interval
-./sync-code.sh -s myserver.com -r /var/www/myapp --watch
+./sync.sh -s myserver.com -r /var/www/myapp --watch
 
 # Auto-sync with 5s interval
-./sync-code.sh -s myserver.com -r /var/www/myapp --watch --interval 5
+./sync.sh -s myserver.com -r /var/www/myapp --watch --interval 5
 
 # Auto-sync with deletion and compression
-./sync-code.sh -s myserver.com -r /var/www/myapp --watch --delete --compress
+./sync.sh -s myserver.com -r /var/www/myapp --watch --delete --compress
 ````
 
 ---
@@ -83,7 +83,7 @@
 
 ```
 share/
-├── sync-code.sh        # Main sync script
+├── sync.sh        # Main sync script
 ├── README.md           # You're here!
 ├── .syncignore         # Optional: patterns to exclude
 ```
