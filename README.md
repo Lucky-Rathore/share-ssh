@@ -1,23 +1,22 @@
-
 # Share 🖥️🔁📡
 
-**Share** is a lightweight, developer-friendly tool for one-way **code syncing** between your local machine and a remote server using `rsync`. With the newly added **auto-sync** mode, it becomes the perfect companion for remote development and live deployment workflows.
+**Share** is a lightweight, developer-friendly tool for one-way code syncing between your local machine and a remote server using `rsync`. With the newly added auto-sync mode, it becomes the perfect companion for remote development and live deployment workflows.
 
 ---
 
-## ✨ Key Features
+✨ **Key Features**
 
-- 🔁 **Auto-Sync with Watch Mode** — automatically syncs on file changes
-- ⚡ Fast and efficient `rsync`-based syncing
-- 🔒 SSH support with custom key and port
-- 💨 Optional compression for faster transfers
-- 🧹 Supports deletion of removed local files on the remote server
-- 📁 Exclude common development files/folders (`node_modules`, `.git`, etc.)
-- 📊 Smart change detection (mod time + size)
+* 🔁 **Auto-Sync with Watch Mode** — automatically syncs on file changes
+* ⚡ **Fast and efficient** rsync-based syncing
+* 🔒 **SSH support** with custom key and port
+* 💨 **Optional compression** for faster transfers
+* 🧹 **Supports deletion** of removed local files on the remote server
+* 📁 **Exclude** common development files/folders (`node_modules`, `.git`, etc.)
+* 📊 **Smart change detection** (mod time + size)
 
 ---
 
-## 🚀 Usage Examples
+🚀 **Usage Examples**
 
 ```bash
 # One-time sync
@@ -31,27 +30,27 @@
 
 # Auto-sync with deletion and compression
 ./sync.sh -s myserver.com -r /var/www/myapp --watch --delete --compress
-````
+```
 
 ---
 
-## ⚙️ Command-Line Options
+⚙️ **Command-Line Options**
 
 | Option             | Description                                               |
 | ------------------ | --------------------------------------------------------- |
 | `-s`, `--server`   | Remote server address (e.g., `user@host`)                 |
 | `-r`, `--remote`   | Remote path to sync to                                    |
 | `-w`, `--watch`    | Enable file watching for auto-sync                        |
-| `-i`, `--interval` | Watch interval in seconds (default: `2`)                  |
+| `-i`, `--interval` | Watch interval in seconds (default: 2)                    |
 | `--delete`         | Delete remote files that don't exist locally              |
 | `--compress`       | Enable compression during sync                            |
 | `--key`            | Path to your SSH private key                              |
-| `--port`           | Custom SSH port (default: `22`)                           |
+| `--port`           | Custom SSH port (default: 22)                             |
 | `--exclude`        | Patterns/files to exclude (repeatable or comma-separated) |
 
 ---
 
-## 🧠 How Auto-Sync Works
+🧠 **How Auto-Sync Works**
 
 1. **Initial Sync** — starts by syncing all files to the remote server.
 2. **Watch Loop** — monitors the file tree periodically (default: every 2s).
@@ -61,7 +60,7 @@
 
 ---
 
-## 📦 Requirements
+📦 **Requirements**
 
 * `rsync`
 * `bash` or compatible shell
@@ -70,7 +69,7 @@
 
 ---
 
-## ✅ Example Use Cases
+✅ **Example Use Cases**
 
 * 🔧 Remote web development (sync changes live)
 * 🧪 Syncing code to cloud test environments
@@ -79,33 +78,44 @@
 
 ---
 
-## 📂 Project Structure
+📂 **Project Structure**
 
 ```
 share/
-├── sync.sh        # Main sync script
-├── README.md           # You're here!
-├── .syncignore         # Optional: patterns to exclude
+├── sync.sh          # Main sync script
+├── README.md        # You're here!
 ```
 
 ---
 
-## 🛡️ Security & Notes
+🔧 **Configuration**
 
-* Ensure your SSH key is secured and permissions are strict (`chmod 600`)
-* Add `.env`, `node_modules`, and other non-needed folders to exclude list
-* This tool is one-way sync: **local ➜ remote**
+Edit the following variables inside `sync.sh` to set your default environment:
+
+```bash
+DEFAULT_SERVER="your-server.com"
+DEFAULT_USER="ubuntu"
+DEFAULT_REMOTE_PATH="/home/ubuntu/app"
+DEFAULT_LOCAL_PATH="/home/ubuntu/app"
+SSH_KEY_PATH="~/.ssh/id_rsa"
+SSH_PORT="22"
+```
+
+You can still override these defaults via command-line options.
 
 ---
 
-## 📄 License
+🛡️ **Security & Notes**
+
+* Ensure your SSH key is secured and permissions are strict (`chmod 600`)
+* Add `.env`, `node_modules`, and other non-needed folders to the exclude list
+* This tool is **one-way sync**: local ➜ remote
+
+---
+
+📄 **License**
 
 MIT License. Use it freely, improve it, and share it back if you can! 🙌
 
 ---
-
-
-
-
-
 
